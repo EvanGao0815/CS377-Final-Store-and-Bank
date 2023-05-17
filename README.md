@@ -2,10 +2,15 @@
 This project is the final for our CS377 Operating Systems class! This is an extension of our Project 4: Producers and Consumers which implemented a bank app that takes deposits, withdrawals and transfers through a ledger.
 ## What this project does
 This specific implementation and extension of the project does a variety of things.
+
 It creates an additional producer consumer named store that holds a certain amount of resources that can be bought and sold or traded for other resources.
+
 Implements a Bounded Buffer that allows multiple concurrent access to a shared ledger.
+
 Implements a check function to the Bank and Store classes.
+
 Attempts to multithread the read-in operation of the ledger.
+
 Extends the ledger text format from "from to amount mode" to "where from to amount value mode", where "where" describes whether the transaction is for the bank or the store and value is a secondary amount for functions that require it e.g. trade.
 ## Installation and Usage
 Download the code and copy it into your C++ environment and run
@@ -16,12 +21,16 @@ You can then run
 ```bash
 ./bank_store_app
 ```
-to run the application
+to run the application.
+
 The project is similar to the class projects in how to download and execute.
+
 You can change the ledger values in exampleLedger.txt, with "where from to amount value mode" instead of "from to amount mode".
 ## Design Decisions
 I wanted this project to be an extension for project 4 to include a working pretend storefront. Originally, my first design was far too ambitious and I scaled the project back. I wanted to create a version of the project more heavily involved with locks and producers and consumers and that is what I attempted to make. 
+
 I wanted to have the store functions use the bank ones as much as possible, but this would only be possible in the ledger.cpp file since the bank instance would not be initialized. As such, for the switch case that determined which mode to use, I added the bank operations to those to update the store account balance.
+
 I have the balance variable in the store class. I originally wanted it to be directly connected to the store's account in the bank, using things such as extern or linked objects between the classes but was not able to do so.
 ## Implementation Specifics
 For specifics on functions already implemented, refer to the Project 4 documentation.
@@ -29,6 +38,7 @@ For specifics on functions already implemented, refer to the Project 4 documenta
 This project uses the same standard libraries as Project 4, I didn't import anything new.
 ### Bounded Buffer
 The bounded buffer is a finite size struct that acts as an array of Ledger objects that are eventually taken by worker threads and executed. It takes an input int N, and makes the array size N.
+
 Buffer and ~Buffer are the constructor and destructors.
 
 add() takes the an incoming ledger object and appends it to the end of the list, which is stored in the variable count. This only occurs if the buffer is not full, and signals that the buffer is not empty.
