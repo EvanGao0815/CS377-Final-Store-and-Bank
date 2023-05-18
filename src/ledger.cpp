@@ -131,7 +131,6 @@ void* fileReaderThread(void *id) {
 		i++;
 	}
 	pthread_mutex_unlock(&file_lock);
-
 }
 
 /**

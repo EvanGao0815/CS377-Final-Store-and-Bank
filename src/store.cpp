@@ -170,7 +170,7 @@ int Store::buy(int workerID, int ledgerID, int resourceID, int amount, int money
   } else {
     string msg = "Worker " + to_string(workerID) + " failed to complete ledger " + to_string(ledgerID) + ": buy " + to_string(amount) +
     " of " + resources[resourceID].name + " with " + to_string(money) + " amount of money, not enough money";
-    recordSucc(const_cast<char*> (msg.c_str()));
+    recordFail(const_cast<char*> (msg.c_str()));
     res = -1;
   }
   pthread_mutex_unlock(&resources[resourceID].lock);

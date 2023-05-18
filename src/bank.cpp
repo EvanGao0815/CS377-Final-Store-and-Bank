@@ -8,11 +8,6 @@
 /**
  * @brief Construct a new Bank:: Bank object.
  * 
- * Requirements:
- *  - The function should initialize the private variables.
- *  - Create a new array[N] of type Accounts. 
- *  - Initialize each account
- * 
  * @param N 
  */
 Bank::Bank(int N) {
@@ -31,11 +26,7 @@ Bank::Bank(int N) {
 
 
 /**
- * @brief Destroy the Bank:: Bank object
- * 
- * Requirements:
- *  - Make sure to destroy all locks. 
- *  - Make sure to free all memory
+ * @brief Destroy the Bank:: Bank object, locks and accounts
  * 
  */
 Bank::~Bank() {
@@ -90,16 +81,11 @@ void Bank::recordSucc(char *message) {
 
 
 /**
- * @brief Adds money to an account 
- * 
- * Requirements:
- *  - Make sure to log in the following format
- *    `Worker [worker_id] completed ledger [ledger_id]: deposit [amount] into account [account]`
+ * @brief checks balance of given account
  * 
  * @param workerID the ID of the worker (thread)
  * @param ledgerID the ID of the ledger entry
- * @param accountID the account ID to deposit 
- * @param amount the amount deposited
+ * @param accountID the account ID to check 
  * @return int 
  */
 int Bank::check(int workerID, int ledgerID, int accountID) {
@@ -112,11 +98,7 @@ int Bank::check(int workerID, int ledgerID, int accountID) {
 }
 
 /**
- * @brief Adds money to an account 
- * 
- * Requirements:
- *  - Make sure to log in the following format
- *    `Worker [worker_id] completed ledger [ledger_id]: deposit [amount] into account [account]`
+ * @brief Adds money to an account and logs success.
  * 
  * @param workerID the ID of the worker (thread)
  * @param ledgerID the ID of the ledger entry
@@ -134,12 +116,7 @@ int Bank::deposit(int workerID, int ledgerID, int accountID, int amount) {
 }
 
 /**
- * @brief Withdraws money from an account
- * 
- * Requirements:
- *  - Make sure the account has a large enough balance. 
- *    - Case 1: withdraw amount <= balance, log success 
- *    - Case 2: log failure
+ * @brief Withdraws money from an account and logs success and failure
  * 
  * @param workerID the ID of the worker (thread)
  * @param ledgerID the ID of the ledger entry
@@ -166,11 +143,6 @@ int Bank::withdraw(int workerID, int ledgerID, int accountID, int amount) {
 
 /**
  * @brief Transfer from one account to another
- * 
- * Requirements:
- *  - Make sure there is enough money in the FROM account
- *  - Be careful with the locking order
- *  
  * 
  * @param workerID the ID of the worker (thread)
  * @param ledgerID the ID of the ledger entry
