@@ -1,9 +1,7 @@
 # CS377-Final-Store-and-Bank
-This project is the final for our CS377 Operating Systems class! This is an extension of our Project 4: Producers and Consumers which implemented a bank app that takes deposits, withdrawals and transfers through a ledger.
-## Presentation
-https://drive.google.com/file/d/13_5YGNvgEozlU2xLR8HDlMi7zdh99rEh/view?usp=share_link
-
-https://docs.google.com/presentation/d/1jYHmykfieLgJcK8F_VmspZvoBTggbNd5SHnH1W2z2jk/edit?usp=sharing
+This project is the final for my CS377 Operating Systems class. This is an extension of our Project 4: Producers and Consumers which implemented a bank app that takes deposits, withdrawals and transfers through a ledger and utilizes threading .
+## Project 4
+The specifics for the project this was based on can be found at https://umass-cs-377.github.io/docs/projects/prodcon/
 ## What this project does
 This specific implementation and extension of the project does a variety of things.
 
